@@ -114,7 +114,7 @@ class Script {
 						case "irc" :
 							if(!isset($step[self::NOTIFY_IKACHAN])) { break; }
 							if(!isset($step[self::NOTIFY_ROOM_ID])) { break; }
-							$ikachan = "#".$step[self::NOTIFY_IKACHAN];
+							$ikachan = $step[self::NOTIFY_IKACHAN];
 							$room_id = $step[self::NOTIFY_ROOM_ID];
 							$script .= "tail -n 1 /tmp/jenkins_message_short | irc-notify -o {$ikachan} -c {$api_token}".PHP_EOL;
 						default :
