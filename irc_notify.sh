@@ -16,7 +16,7 @@ EOF
 
 CHANNEL=${CHANNEL:-}
 IKACHAN=${IKACHAN:-}
-while getopts “ht:c:o:” OPTION; do
+while getopts “hc:o:” OPTION; do
     case $OPTION in
         h) usage; exit 1;;
         c) CHANNEL=$OPTARG;;
