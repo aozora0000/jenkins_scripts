@@ -22,9 +22,9 @@ echo_c $GREEN "
 # Script Updater Start
 #############################################
 "
-(curl $CURL_OPTION /usr/bin/yaml-parser    $YAML_PARSER_URL && chmod 0777 /usr/bin/yaml-parser)    & \
-(curl $CURL_OPTION /usr/bin/hipchat-notify $HIPCHAT_NOTIFY  && chmod 0777 /usr/bin/hipchat-notify) & \
-(curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify)
+curl $CURL_OPTION /usr/bin/yaml-parser    $YAML_PARSER_URL && chmod 0777 /usr/bin/yaml-parser    && \
+curl $CURL_OPTION /usr/bin/hipchat-notify $HIPCHAT_NOTIFY  && chmod 0777 /usr/bin/hipchat-notify && \
+curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify
 
 echo_c $GREEN "
 #############################################
