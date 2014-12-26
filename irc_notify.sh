@@ -1,17 +1,17 @@
 #!/bin/bash -e
 
 usage() {
-    cat << EOF
-    Usage: $0 -t <token>
+cat << EOF
+Usage: $0 -t <token>
 
-    This script will read from stdin and send the contents to the given room as
-    a system message.
+This script will read from stdin and send the contents to the given room as
+a system message.
 
-    OPTIONS:
-    -h Show this message
-    -c CHANNEL
-    -o IKACHAN http://localhost:4979
-    EOF
+OPTIONS:
+-h Show this message
+-c CHANNEL
+-o IKACHAN http://localhost:4979
+EOF
 }
 
 CHANNEL=${CHANNEL:-}
