@@ -7,6 +7,7 @@ BLUE=34
 YAML_PARSER_URL=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/YamlParser
 HIPCHAT_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/hipchat_notify.sh
 IDOBATA_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/idobata_notify.sh
+IRC_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/irc_notify.sh
 
 CURL_OPTION="-# --retry 3 --retry-delay 4 -L -o"
 
@@ -16,6 +17,13 @@ function echo_c {
     echo -e "\033[${color}m$@\033[m"
 }
 
+echo_c $BLUE "
+#############################################
+# UpdateHistory
+#############################################
+rev2 2014-12-26 irc-notify Deployment
+rev1 2014-12-26 hipchat-notify & idobata-notify & yaml-parser Deployments
+"
 
 echo_c $GREEN "
 #############################################
@@ -24,7 +32,8 @@ echo_c $GREEN "
 "
 curl $CURL_OPTION /usr/bin/yaml-parser    $YAML_PARSER_URL && chmod 0777 /usr/bin/yaml-parser    && \
 curl $CURL_OPTION /usr/bin/hipchat-notify $HIPCHAT_NOTIFY  && chmod 0777 /usr/bin/hipchat-notify && \
-curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify
+curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify && \
+curl $CURL_OPTION /usr/bin/irc-notify     $IRC_NOTIFY      && chmod 0777 /usr/bin/irc-notify
 
 echo_c $GREEN "
 #############################################
