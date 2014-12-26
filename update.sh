@@ -26,6 +26,8 @@ curl $CURL_OPTION /usr/bin/yaml-parser    $YAML_PARSER_URL && chmod 0777 /usr/bi
 curl $CURL_OPTION /usr/bin/hipchat-notify $HIPCHAT_NOTIFY  && chmod 0777 /usr/bin/hipchat-notify && \
 curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify
 
+echo $?
+
 echo_c $GREEN "
 #############################################
 # Script Updater End
