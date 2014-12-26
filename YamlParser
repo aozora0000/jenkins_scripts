@@ -116,7 +116,7 @@ class Script {
 							if(!isset($step[self::NOTIFY_ROOM_ID])) { break; }
 							$ikachan = "#".$step[self::NOTIFY_IKACHAN];
 							$room_id = $step[self::NOTIFY_ROOM_ID];
-							$script .= "cat /tmp/jenkins_message_short  | irc-notify -o {$ikachan} -c {$api_token}".PHP_EOL;
+							$script .= "cat /tmp/jenkins_message_short | sed -n 1p | irc-notify -o {$ikachan} -c {$api_token}".PHP_EOL;
 						default :
 							break;
 					}
@@ -146,7 +146,6 @@ chmod -R 777 \$WORKSPACE/step.sh && \
 chmod -R 777 \$WORKSPACE/notify.sh
 DOCKER_RESULT=0
 docker run --rm -v \$WORKSPACE:/home/worker/workspace -w /home/worker/workspace -u worker -t $image /bin/bash -l step.sh || DOCKER_RESULT=$?
-docker rm `docker ps -a -q` || true
 
 source \$WORKSPACE/notify.sh
 
