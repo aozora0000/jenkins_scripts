@@ -30,10 +30,10 @@ echo_c $GREEN "
 # Script Updater Start
 #############################################
 "
-curl $CURL_OPTION /usr/bin/yaml-parser    $YAML_PARSER_URL && chmod 0777 /usr/bin/yaml-parser    && \
-curl $CURL_OPTION /usr/bin/hipchat-notify $HIPCHAT_NOTIFY  && chmod 0777 /usr/bin/hipchat-notify && \
-curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify && \
-curl $CURL_OPTION /usr/bin/irc-notify     $IRC_NOTIFY      && chmod 0777 /usr/bin/irc-notify
+rm -f /usr/bin/yaml-parser    && curl $CURL_OPTION /usr/bin/yaml-parser    $YAML_PARSER_URL && chmod 0777 /usr/bin/yaml-parser    && \
+rm -f /usr/bin/hipchat-notify && curl $CURL_OPTION /usr/bin/hipchat-notify $HIPCHAT_NOTIFY  && chmod 0777 /usr/bin/hipchat-notify && \
+rm -f /usr/bin/idobata-notify && curl $CURL_OPTION /usr/bin/idobata-notify $IDOBATA_NOTIFY  && chmod 0777 /usr/bin/idobata-notify && \
+rm -f /usr/bin/irc-notify     && curl $CURL_OPTION /usr/bin/irc-notify     $IRC_NOTIFY      && chmod 0777 /usr/bin/irc-notify
 
 echo_c $GREEN "
 #############################################
