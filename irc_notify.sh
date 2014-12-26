@@ -34,4 +34,4 @@ fi
 # get input
 INPUT=$(cat)
 
-curl -s -F channel=$CHANNEL -F message="$INPUT" $IKACHAN/notice 1> /dev/null &
+curl -s -F channel=$CHANNEL -F message="$INPUT" $IKACHAN/notice
