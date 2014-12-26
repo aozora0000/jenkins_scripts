@@ -2,7 +2,7 @@
 
 usage() {
 cat << EOF
-Usage: $0 -t <token>
+Usage: $0 -c \#CHANNEL -o http://localhost:4649
 
 This script will read from stdin and send the contents to the given room as
 a system message.
@@ -20,7 +20,7 @@ while getopts “hc:o:” OPTION; do
     case $OPTION in
         h) usage; exit 1;;
         c) CHANNEL=$OPTARG;;
-        o) HOST=$OPTARG;;
+        o) IKACHAN=$OPTARG;;
         [?]) usage; exit;;
     esac
 done
