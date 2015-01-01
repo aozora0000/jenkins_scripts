@@ -117,12 +117,14 @@ class Script {
                             $ikachan = $step[self::NOTIFY_IKACHAN];
                             $room_id = $step[self::NOTIFY_ROOM_ID];
                             $script .= "tail -n 1 /tmp/jenkins_message_short | irc-notify -o {$ikachan} -c {$api_token}".PHP_EOL;
+                            break;
                         case "chatwork" :
                             if(!isset($step[self::NOTIFY_APITOKEN])) { break; }
                             if(!isset($step[self::NOTIFY_ROOM_ID])) { break; }
                             $room_id = $step[self::NOTIFY_ROOM_ID];
                             $api_token = $step[self::NOTIFY_APITOKEN];
                             $script .= "tail -n 1 /tmp/jenkins_message_chatwork | chatwork-notify -o {$api_token} -r {$room_id}".PHP_EOL;
+                            break;
                         default :
                             break;
                     }
@@ -207,6 +209,7 @@ REMOTE_REPOSITORY=\$(git-parser `git config --get remote.origin.url`)
 printf "Build \$REMOTE_REPOSITORY<a href="\$JOB_URL">#\$BUILD_NUMBER</a> (\$COMMIT_BRANCH - \$COMMIT_ID): \$LABEL \n\$COMMIT_AUTHER: \$COMMIT_COMMENT" > /tmp/jenkins_message_normal
 printf "Build \$SHORT_RESULT \$REMOTE_REPOSITORY #\$BUILD_NUMBER (\$COMMIT_BRANCH - \$COMMIT_ID): \$COMMIT_AUTHER: \$COMMIT_COMMENT" > /tmp/jenkins_message_short
 printf "[info][title]Build \$SHORT_RESULT \$REMOTE_REPOSITORY[/title] #\$BUILD_NUMBER (\$COMMIT_BRANCH - \$COMMIT_ID): \$COMMIT_AUTHER: \$COMMIT_COMMENT[/info]" > /tmp/jenkins_message_chatwork
+printf "[info][title]Build \$SHORT_RESULT \$REMOTE_REPOSITORY[/title] #\$BUILD_NUMBER (\$COMMIT_BRANCH - \$COMMIT_ID): \$COMMIT_AUTHER: \$COMMIT_COMMENT[/info]" > /root/jenkins_message_chatwork
 
 $script
 EOM;
