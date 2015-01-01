@@ -38,6 +38,6 @@ fi
 INPUT=$(cat)
 
 # urlencode with perl
-INPUT=$(printf "${INPUT}" | perl -p -e 's/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg')
+INPUT=$(printf "${INPUT}" | perl -MURI::Escape -lne 'print uri_unescape($_)')
 
 curl -X POST -H "X-ChatWorkToken: ${TOKEN}" -d $"body=${INPUT}" "https://${HOST}/v1/rooms/${ROOM_ID}/messages" | jq 'if select(has("errors")) then 1 else 0 end'
