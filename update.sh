@@ -31,10 +31,10 @@ rev1 2014-12-26 hipchat-notify & idobata-notify & yaml-parser Deployments
 
 if [ ! -e /usr/bin/jq ]; then
     echo_c $YELLOW "
-    #############################################
-    # JQ command Install
-    #############################################
-    "
+#############################################
+# JQ command Install
+#############################################
+"
     curl -o /usr/bin/jq $JQ_URL && chmod +x /usr/bin/jq
 fi
 
