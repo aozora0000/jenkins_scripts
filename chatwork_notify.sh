@@ -37,7 +37,7 @@ fi
 # get input
 INPUT=$(cat)
 # input EOF delte
-INPUT=$(echo -n "${INPUT}" | sed "s/$//")
+INPUT=$(echo "${INPUT}" | sed "s/\n//")
 
 # urlencode with perl
 INPUT=$(echo -n "${INPUT}" | perl -p -e 's/([^A-Za-z0-9])/sprintf("%%%02X", ord($1))/seg')
