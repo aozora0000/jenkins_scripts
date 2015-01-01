@@ -4,10 +4,13 @@ GREEN=32
 YELLOW=33
 BLUE=34
 
+JQ_URL=http://stedolan.github.io/jq/download/linux64/jq
 YAML_PARSER_URL=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/YamlParser
 HIPCHAT_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/hipchat_notify.sh
 IDOBATA_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/idobata_notify.sh
 IRC_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/irc_notify.sh
+
+
 
 CURL_OPTION="-# --retry 3 --retry-delay 4 -L -o"
 
@@ -21,9 +24,19 @@ echo_c $BLUE "
 #############################################
 # UpdateHistory
 #############################################
+rev3 2015-01-01 requirement Jq command & chatwork-notify Deployment
 rev2 2014-12-26 irc-notify Deployment
 rev1 2014-12-26 hipchat-notify & idobata-notify & yaml-parser Deployments
 "
+
+if [ ! -e /usr/bin/jq ]; then
+    echo_c $YELLOW "
+    #############################################
+    # JQ command Install
+    #############################################
+    "
+    curl -o /usr/bin/jq $JQ_URL && chmod +x /usr/bin/jq
+fi
 
 echo_c $GREEN "
 #############################################
