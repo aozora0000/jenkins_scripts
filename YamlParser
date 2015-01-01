@@ -123,7 +123,7 @@ class Script {
                             if(!isset($step[self::NOTIFY_ROOM_ID])) { break; }
                             $room_id = $step[self::NOTIFY_ROOM_ID];
                             $api_token = $step[self::NOTIFY_APITOKEN];
-                            $script .= "tail -n 1 /tmp/jenkins_message_chatwork | chatwork-notify -o {$api_token} -r {$room_id}".PHP_EOL;
+                            $script .= "tail -n 1 /tmp/jenkins_message_chatwork | chatwork-notify -t {$api_token} -r {$room_id}".PHP_EOL;
                             break;
                         default :
                             break;
@@ -170,7 +170,7 @@ EOM;
         $step = sprintf("%d/%d",$i,$count);
         return <<< EOM
 echo -e "\e[32m
-# Step: $step $title
+## Step: $step $title
 \e[m"
 
 $script
