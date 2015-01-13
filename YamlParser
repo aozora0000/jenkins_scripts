@@ -188,6 +188,7 @@ source \$WORKSPACE/notify.sh
 rm -f \$WORKSPACE/step.sh && \
 rm -f \$WORKSPACE/notify.sh && \
 rm -f \$WORKSPACE/build.sh && \
+rm -f \$WORKSPACE/link.sh && \
 rm -rf /tmp/jenkins_message*
 exit \$DOCKER_RESULT
 EOM;
