@@ -13,11 +13,13 @@ DOCKER_RESULT=0
 source ./link.sh
 
 docker run --rm -v $WORKSPACE:/home/worker/workspace -w /home/worker/workspace $LINK_1 $LINK_2 $LINK_3 -u worker -t aozora0000/jenkins-ci-node:latest /bin/bash -l step.sh || DOCKER_RESULT=$?
+docker rm -f $(docker ps -a -q) || true
 
 source $WORKSPACE/notify.sh
 
 rm -f $WORKSPACE/step.sh && \
 rm -f $WORKSPACE/notify.sh && \
 rm -f $WORKSPACE/build.sh && \
+rm -f $WORKSPACE/link.sh && \
 rm -rf /tmp/jenkins_message*
 exit $DOCKER_RESULT
