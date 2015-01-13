@@ -1,0 +1,9 @@
+container: aozora0000/jenkins-ci-node:latest
+links:
+    - name: db
+      container: mysql:5.6.22
+steps:
+    - name: npmインストール
+      code: npm install
+    - name: gulp起動
+      code: ./node_modules/.bin/gulp test
