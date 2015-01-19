@@ -20,6 +20,7 @@
     <target name="build" description="Build YamlParser">
         <exec dir="./yaml-parser" command="box build" />
         <exec dir="./yaml-parser" command="cp yaml-parser.phar ../scripts/yaml-parser" />
+        <exec dir="./yaml-parser" command="cp yaml-parser.phar ../yaml-parser/example/yaml-parser" />
     </target>
 
     <target name="all" depends="prepare,phpunit,build">
