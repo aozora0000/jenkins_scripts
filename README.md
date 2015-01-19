@@ -3,5 +3,5 @@
 
 ## アップデート用コマンド
 ```
-curl -L https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/update.sh | bash
+curl -L https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/scripts/update.sh | bash
 ```

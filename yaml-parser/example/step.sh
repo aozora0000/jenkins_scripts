@@ -10,10 +10,8 @@ echo -e "[32m
 [m"
 
 npm install
-
 echo -e "[32m
 ## Step: 2/2 gulp起動
 [m"
 
 ./node_modules/.bin/gulp test
-

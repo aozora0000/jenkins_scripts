@@ -5,11 +5,11 @@ YELLOW=33
 BLUE=34
 
 JQ_URL=http://stedolan.github.io/jq/download/linux64/jq
-YAML_PARSER_URL=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/YamlParser
-HIPCHAT_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/hipchat_notify.sh
-IDOBATA_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/idobata_notify.sh
-IRC_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/irc_notify.sh
-CHATWORK_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/chatwork_notify.sh
+YAML_PARSER_URL=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/scripts/yaml-parser
+HIPCHAT_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/scripts/hipchat_notify.sh
+IDOBATA_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/scripts/idobata_notify.sh
+IRC_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/scripts/irc_notify.sh
+CHATWORK_NOTIFY=https://raw.githubusercontent.com/aozora0000/jenkins_scripts/master/scripts/chatwork_notify.sh
 
 CURL_OPTION="-# --retry 3 --retry-delay 4 -L -o"
 

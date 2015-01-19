@@ -2,8 +2,6 @@ container: aozora0000/jenkins-ci-node:latest
 links:
     - name: db
       container: mysql:5.6.22
-    - name: redis
-      container: redis:2.8.9
 steps:
     - name: npmインストール
       code: npm install

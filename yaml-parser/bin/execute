@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+
+<?php
+$require = require "./vendor/autoload.php";
+execute($argv);
+
+function execute(Array $argv) {
+    switch(true) {
+        case isset($argv[1]) :
+            $file = $argv[1];
+            break;
+        case isset($_ENV["WORKSPACE"]) :
+            $file = $_ENV["WORKSPACE"]."/.jenkins.yml";
+            break;
+        default:
+            $file = "./.jenkins.yml";
+            break;
+    }
+    $dir = dirname($file);
+    $scripter = new Parser\Script($file);
+
+    $link = $scripter->createLinksScript();
+    $docker = $scripter->createDockerScript();
+    $step = $scripter->createStepScript();
+    $notify = $scripter->createNotifyScript();
+
+    file_put_contents("{$dir}/link.sh",$link);
+    file_put_contents("{$dir}/build.sh", $docker);
+    file_put_contents("{$dir}/step.sh",  $step);
+    file_put_contents("{$dir}/notify.sh",$notify);
+}

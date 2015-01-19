@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="pofc" default="all">
+    <property name="basedir" value="./" />
+    <property name="output" value="${basedir}/build/logs" />
+
+    <target name="clean" description="Cleanup build artifacts">
+        <!-- <delete dir="${basedir}/build/api"/ datetime="2012-03-10T10:56:55+09:00"> -->
+    </target>
+
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <!-- <mkdir dir="${basedir}/build/api"/> -->
+    </target>
+
+
+    <!-- phing -->
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+    </target>
+
+    <!-- phing -->
+    <target name="build" description="Build YamlParser">
+        <exec dir="./yaml-parser" command="box build" />
+        <exec dir="./yaml-parser" command="cp yaml-parser.phar ../scripts/yaml-parser" />
+    </target>
+
+    <target name="all" depends="prepare,phpunit,build">
+    </target>
+
+</project>
